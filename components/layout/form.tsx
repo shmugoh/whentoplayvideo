@@ -15,6 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { processUrl } from "@/utils/processUrl";
 
 const formSchema = z.object({
   videoId: z.string(),
@@ -28,6 +29,8 @@ type InputProps = {
 };
 
 export function InputForm(props: InputProps) {
+  const defaultVideoURL = "https://www.youtube.com/watch?v=FtutLA63Cp8";
+
   // Form Definition
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -38,8 +41,12 @@ export function InputForm(props: InputProps) {
 
   // Form OnSubmit
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    props.setVideoId(values["videoId"]);
+    if (values["videoId"] == "") {
+      values["videoId"] = defaultVideoURL;
+    }
+
+    const videoId = processUrl(values["videoId"]);
+    props.setVideoId(videoId); // TODO: fix this ts error later
   }
 
   return (

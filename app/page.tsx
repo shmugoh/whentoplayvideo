@@ -17,7 +17,7 @@ export default function Home() {
         </div>
 
         <InputForm setVideoId={setVideoId} />
-        <YouTubeVideoEmbed className="mt-8" videoId={videoId} />
+        {videoId && <YouTubeVideoEmbed className="mt-8" videoId={videoId} />}
       </div>
     </main>
   );

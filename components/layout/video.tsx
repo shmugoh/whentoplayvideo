@@ -1,25 +1,41 @@
-import React, { useEffect } from "react";
-import LiteYouTubeEmbed from "react-lite-youtube-embed";
-import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
+import React, { useEffect, useRef } from "react";
+import YTPlayer from "yt-player";
 
 type EmbedProps = {
   className: string;
   videoId: string;
+  setDurationHook: React.Dispatch<React.SetStateAction<number>>;
+  setLengthHook: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export function YouTubeVideoEmbed(props: EmbedProps) {
-  const url = `https://www.youtube-nocookie.com/embed/${props.videoId}`;
+  const playerRef = useRef("");
 
-  return (
-    <div className={props.className}>
-      <iframe
-        width="560"
-        height="315"
-        src={url}
-        title="YouTube video player"
-        frameBorder="0"
-        allowFullScreen
-      ></iframe>
-    </div>
-  );
+  useEffect(() => {
+    // Create a new player instance when the component mounts
+    const player = new YTPlayer(playerRef.current, {
+      controls: true, // Add any additional configurations you need
+    });
+
+    // Load Video
+    player.load(props.videoId);
+    player.on("unstarted", () => {
+      // Obtain Duration
+      var durationVal = player.getDuration();
+      props.setDurationHook(durationVal);
+    });
+
+    player.on("timeupdate", () => {
+      // Update Current Time Update
+      var currentTime = Math.round(player.getCurrentTime());
+      props.setLengthHook(currentTime);
+    });
+
+    // Destroy when new videoId is parsed
+    return () => {
+      player.destroy();
+    };
+  }, [props.videoId]);
+
+  return <div className={props.className} ref={playerRef}></div>;
 }

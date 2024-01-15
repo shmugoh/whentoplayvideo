@@ -25,7 +25,7 @@ const formSchema = z.object({
 });
 
 type InputProps = {
-  setVideoId: React.Dispatch<React.SetStateAction<string>>;
+  setVideoId: any;
 };
 
 export function InputForm(props: InputProps) {

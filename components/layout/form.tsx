@@ -26,6 +26,9 @@ const formSchema = z.object({
 
 type InputProps = {
   setVideoId: any;
+  formClassName?: string;
+  inputClassName?: string;
+  buttonClassName?: string;
 };
 
 export function InputForm(props: InputProps) {
@@ -53,7 +56,7 @@ export function InputForm(props: InputProps) {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="md:flex lg:flex md:flex-row lg:flex-row justify-between"
+        className={props.formClassName}
       >
         <FormField
           control={form.control}
@@ -63,7 +66,7 @@ export function InputForm(props: InputProps) {
               {/* <FormLabel>Link</FormLabel> */}
               <FormControl>
                 <Input
-                  className="md:mt-0 lg:w-96"
+                  className={props.inputClassName}
                   placeholder="https://www.youtube.com/watch?v=FtutLA63Cp8"
                   {...field}
                 />
@@ -75,11 +78,10 @@ export function InputForm(props: InputProps) {
             </FormItem>
           )}
         />
-        <div className="mt-4 md:mt-0 lg:mt-0 ml-8 text-center">
-          <Button className="" type="submit">
-            Submit
-          </Button>
-        </div>
+
+        <Button className={props.buttonClassName} type="submit">
+          Submit
+        </Button>
       </form>
     </Form>
   );

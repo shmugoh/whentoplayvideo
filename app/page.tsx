@@ -21,37 +21,46 @@ export default function Home() {
   const [second, setSecond] = React.useState(0);
 
   return (
-    <main className="flex flex-col items-center justify-between">
-      <div className="flex flex-col items-center justify-between p-12 ml-8 mr-8 lg:ml-0 lg:mr-0">
-        <div>
-          <h1 className="mb-8 scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl dark:text-white">
+    <main className="min-h-screen bg-gray-100 p-16">
+      <div className="flex flex-col items-center justify-between space-y-8">
+        <div id="headerContainer" className="space-y-8">
+          <h1 className="scroll-m-20 text-5xl font-extrabold tracking-tight lg:text-6xl dark:text-white">
             When to Play Video?
           </h1>
+
+          <InputForm
+            formClassName="space-y-4"
+            inputClassName="w-full"
+            buttonClassName="w-full"
+            setVideoId={setVideoId}
+          />
         </div>
 
-        <InputForm setVideoId={setVideoId} />
         {videoId && (
           <>
             <YouTubeVideoEmbed
-              className="mt-8"
+              className=""
               videoId={videoId}
               setDurationHook={setDuration}
               setLengthHook={setCurrentLength}
             />
 
-            <div className="m-16">
-              <p>play around...</p>
-              <p>{calculateTime(currentLength, hour, minute, second)}</p>
-              <p className="whitespace-pre-line">{currentLength}</p>
+            <div className="flex space-x-8 space-y-5">
+              <div className="bg-red-500 text-white text-6xl max-w font-bold py-4 px-4 rounded-md flex flex-col">
+                <p className="text-left font-semibold text-base">Play at...</p>
+                <p>{calculateTime(currentLength, hour, minute, second)} AM</p>
+                <p className="text-right font-semibold text-base">
+                  to sync at around:
+                </p>
+              </div>
+              <TimeSlot
+                className=""
+                currentLength={currentLength}
+                HourHook={setHour}
+                MinHook={setMinute}
+                SecsHook={setSecond}
+              />
             </div>
-
-            <TimeSlot
-              className="m-8"
-              currentLength={currentLength}
-              HourHook={setHour}
-              MinHook={setMinute}
-              SecsHook={setSecond}
-            />
           </>
         )}
       </div>

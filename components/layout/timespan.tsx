@@ -37,7 +37,8 @@ export function TimeSpan(props: spanProps) {
     <Carousel
       opts={{
         align: "start",
-        loop: "true",
+        loop: true,
+        startIndex: props.length === 12 ? 11 : 0,
       }}
       orientation="vertical"
       className="w-full max-w-xs"

@@ -4,6 +4,11 @@ export function calculateTime(
   timeMinute: number,
   timeSecond: number
 ): string {
+  // for default carousel value as its left blank
+  if (timeHour == 0) {
+    timeHour = 12;
+  }
+
   const totalSecondsInput = timeHour * 3600 + timeMinute * 60 + timeSecond;
   const timeDifferenceSecs = totalSecondsInput - videoTime;
 

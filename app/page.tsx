@@ -6,6 +6,8 @@ import { YouTubeVideoEmbed } from "@/components/layout/video";
 
 import { TimeSlot } from "@/components/layout/time";
 
+import { calculateTime } from "@/utils/calculateTime";
+
 export default function Home() {
   /* Hooks */
   // YouTube Hooks
@@ -37,8 +39,14 @@ export default function Home() {
               setLengthHook={setCurrentLength}
             />
 
+            <div className="m-16">
+              <p>play it at...</p>
+              <p>{calculateTime(currentLength, hour, minute, second)}</p>
+              <p>{currentLength}</p>
+            </div>
+
             <TimeSlot
-              className="mt-16"
+              className="m-8"
               currentLength={currentLength}
               HourHook={setHour}
               MinHook={setMinute}

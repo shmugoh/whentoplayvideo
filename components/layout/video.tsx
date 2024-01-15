@@ -27,7 +27,7 @@ export function YouTubeVideoEmbed(props: EmbedProps) {
 
     player.on("timeupdate", () => {
       // Update Current Time Update
-      var currentTime = Math.round(player.getCurrentTime());
+      var currentTime = Math.floor(player.getCurrentTime());
       props.setLengthHook(currentTime);
     });
 

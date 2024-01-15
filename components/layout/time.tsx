@@ -12,15 +12,13 @@ type propsTimeSlot = {
 
 export function TimeSlot(props: propsTimeSlot) {
   return (
-    <div>
-      <div className={`${props.className} flex flex-row`}>
-        <TimeSpan length={12} TimeHook={props.HourHook} />
-        <TimeSpan length={60} TimeHook={props.MinHook} />
-        <TimeSpan length={60} TimeHook={props.SecsHook} />
-        <div className="space-y-4">
-          <Toggle className="">AM</Toggle>
-          <Toggle className="">PM</Toggle>
-        </div>
+    <div className={`flex flex-row`}>
+      <TimeSpan length={12} TimeHook={props.HourHook} />
+      <TimeSpan length={60} TimeHook={props.MinHook} />
+      <TimeSpan length={60} TimeHook={props.SecsHook} />
+      <div className="space-y-4">
+        <Toggle className="">AM</Toggle>
+        <Toggle className="">PM</Toggle>
       </div>
 
       {/* <div className="flex flex-row">

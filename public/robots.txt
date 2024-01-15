@@ -1,0 +1,8 @@
+# Disallow everything by default for all crawlers.
+User-agent: *
+Disallow: /
+
+# Allow certain social media crawlers to access specific files.
+User-agent: Twitterbot
+Allow: /favicon.ico
+Allow: /twitter-image.png

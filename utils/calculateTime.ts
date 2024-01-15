@@ -4,10 +4,19 @@ export function calculateTime(
   timeMinute: number,
   timeSecond: number
 ): string {
+  // for pre-set values in carosuel so it can do the calculations
+  if (timeHour == 0) {
+    timeHour = 12;
+  }
+
   const totalSecondsInput = timeHour * 3600 + timeMinute * 60 + timeSecond;
   const timeDifferenceSecs = totalSecondsInput - videoTime;
 
-  const finalHours = Math.floor(timeDifferenceSecs / 3600);
+  var finalHours = Math.floor(timeDifferenceSecs / 3600);
+  if (finalHours === 0) {
+    // just so it can switch back
+    finalHours = 12;
+  }
   const finalMinutes = Math.floor((timeDifferenceSecs % 3600) / 60);
   const finalSecs = Math.floor(timeDifferenceSecs % 60);
 

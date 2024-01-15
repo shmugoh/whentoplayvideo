@@ -3,25 +3,17 @@ export function calculateTime(
   timeHour: number,
   timeMinute: number,
   timeSecond: number
-) {
-  // Calculate minutes and seconds
-  const getHours = Math.floor(videoTime / 3600);
-  const getMins = Math.floor((videoTime % 3600) / 60);
-  const getSecs = videoTime % 60;
+): string {
+  const totalSecondsInput = timeHour * 3600 + timeMinute * 60 + timeSecond;
+  const timeDifferenceSecs = totalSecondsInput - videoTime;
 
-  if (timeMinute === 0) {
-    timeMinute = 59;
-  }
-  if (timeSecond === 0) {
-    timeSecond = 60;
-  }
+  const finalHours = Math.floor(timeDifferenceSecs / 3600);
+  const finalMinutes = Math.floor((timeDifferenceSecs % 3600) / 60);
+  const finalSecs = Math.floor(timeDifferenceSecs % 60);
 
-  // Calculate remaining time
-  const FinalHours = timeHour - getHours;
-  const FinalMinutes = timeMinute - getMins;
-  const FinalSecs = timeSecond - getSecs;
+  const formattedHours = finalHours.toString().padStart(2, "0");
+  const formattedMinutes = finalMinutes.toString().padStart(2, "0");
+  const formattedSecs = finalSecs.toString().padStart(2, "0");
 
-  return `${FinalHours}:${FinalMinutes}:${FinalSecs}`;
-  // ${timeHour}:${timeMinute}:${timeSecond}
-  // ${getHours}:${getMins}:${getSecs};
+  return `${formattedHours}:${formattedMinutes}:${formattedSecs}`;
 }

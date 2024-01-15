@@ -40,9 +40,9 @@ export default function Home() {
             />
 
             <div className="m-16">
-              <p>play it at...</p>
+              <p>play around...</p>
               <p>{calculateTime(currentLength, hour, minute, second)}</p>
-              <p>{currentLength}</p>
+              <p className="whitespace-pre-line">{currentLength}</p>
             </div>
 
             <TimeSlot

@@ -26,7 +26,10 @@ export function TimeSpan(props: spanProps) {
     // Sets Number to Hook
     api.on("select", () => {
       var currentNum: number = api.selectedScrollSnap() + 1;
-      props.TimeHook(currentNum);
+
+      // Adjust logic based on the length
+      props.TimeHook(props.length === 12 ? currentNum : currentNum - 1);
+      console.log(props.length === 12 ? currentNum : currentNum - 1);
     });
   }, [api]);
 
@@ -47,7 +50,8 @@ export function TimeSpan(props: spanProps) {
               <Card>
                 <CardContent className="flex items-center justify-center p-4">
                   <span className="text-3xl font-semibold">
-                    {props.length == 12 ? index + 1 : index}
+                    {(index + 1 < 10 ? "0" : "") +
+                      (props.length === 12 ? index + 1 : index)}
                   </span>
                 </CardContent>
               </Card>

@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 
   metadataBase: new URL("https://whentoplayvideo.vercel.app/"),
   openGraph: {
+    siteName: "by @shmugo",
     title: "When to Play Video?",
-    siteName: "When to Play Video?",
     description: "pretend there's some cool text here",
     url: "https://whentoplayvideo.vercel.app/",
     images: "/opengraph-image.png",

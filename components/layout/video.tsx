@@ -15,6 +15,7 @@ export function YouTubeVideoEmbed(props: EmbedProps) {
     // Create a new player instance when the component mounts
     const player = new YTPlayer(playerRef.current, {
       controls: true, // Add any additional configurations you need
+      autoplay: true, // doesn't work but i'm keeping it here cuz y not lol
     });
 
     // Load Video
@@ -23,6 +24,11 @@ export function YouTubeVideoEmbed(props: EmbedProps) {
       // Obtain Duration
       var durationVal = player.getDuration();
       props.setDurationHook(durationVal);
+    });
+
+    // Autoplays video, as opts.autoplay doesn't work for some reason
+    player.on("cued", () => {
+      player.play();
     });
 
     player.on("timeupdate", () => {

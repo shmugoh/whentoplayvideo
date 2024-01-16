@@ -6,15 +6,19 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
+const SITE_TITLE = "When to Play Video";
+const SITE_DESCRIPTION =
+  "Perfectly sync songs or videos for celebrations - no complex calculations needed!";
+
 export const metadata: Metadata = {
-  title: "When to Play Video?",
-  description: "pretend there's some cool text here",
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
 
   metadataBase: new URL("https://whentoplayvideo.vercel.app/"),
   openGraph: {
     siteName: "by @shmugo_",
-    title: "When to Play Video?",
-    description: "pretend there's some cool text here",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     url: "https://whentoplayvideo.vercel.app/",
     images: "/opengraph-image.png",
     locale: "en_US",
@@ -22,8 +26,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "When to Play Viedo?",
-    description: "pretend there's some cool text here",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     siteId: "706095733687115776",
     creator: "@shmugo_",
     creatorId: "706095733687115776",

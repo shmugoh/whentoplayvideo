@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-// import Link from "next/link";
+
+import { useTheme } from "next-themes";
 
 import { InputForm } from "@/components/layout/form";
 import { YouTubeVideoEmbed } from "@/components/layout/video";
@@ -9,12 +10,21 @@ import { TimeSlot } from "@/components/layout/time";
 
 import { calculateTime } from "@/utils/calculateTime";
 
-import { Github, Coffee } from "lucide-react";
+import { Moon, Sun, Github, Coffee } from "lucide-react";
 
 import { Separator } from "@/components/ui/separator";
 
+import { Button } from "@/components/ui/button";
+
 export default function Home() {
   /* Hooks */
+  // UI Hooks
+  const { theme, setTheme } = useTheme();
+
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
   // YouTube Hooks
   const [videoId, setVideoId] = React.useState("");
   const [duration, setDuration] = React.useState(0);
@@ -26,7 +36,7 @@ export default function Home() {
   const [second, setSecond] = React.useState(0);
 
   return (
-    <main className="min-h-screen bg-gray-100 flex flex-col">
+    <main className="min-h-screen bg-gray-100 dark:bg-background flex flex-col">
       <div className="flex flex-col p-16 items-center justify-between space-y-8 flex-1">
         <div id="headerContainer" className="space-y-8">
           <h1 className="pr-12 lg:pr-0 xl:pr-0 2xl:pr-0 scroll-m-20 text-5xl font-extrabold tracking-tight lg:text-6xl xl:text-6x1 2xl:text6x1 dark:text-white">
@@ -102,6 +112,13 @@ export default function Home() {
             <a href="https://github.com/shmugoh/whentoplayvideo">
               <Github />
             </a>
+            <Separator className="h-8" orientation="vertical" />
+
+            {theme === "light" ? (
+              <Moon onClick={toggleTheme} />
+            ) : (
+              <Sun onClick={toggleTheme} />
+            )}
           </div>
         </div>
       </footer>

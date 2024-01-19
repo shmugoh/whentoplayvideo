@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
+import { ThemeProvider } from "@/components/ui/theme-provider";
+
 import { Inter } from "next/font/google";
 import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
+/* --- */
 
 const SITE_TITLE = "When to Play Video";
 const SITE_DESCRIPTION =
@@ -44,7 +47,14 @@ export default function RootLayout({
     <html lang="en">
       <link rel="icon" href="/favicon.svg" sizes="any" />
       <body className={inter.className}>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
         <Analytics />
         <SpeedInsights />
       </body>

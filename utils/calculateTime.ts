@@ -2,7 +2,8 @@ export function calculateTime(
   videoTime: number,
   timeHour: number,
   timeMinute: number,
-  timeSecond: number
+  timeSecond: number,
+  meridiem: string
 ): string {
   // for pre-set values in carosuel so it can do the calculations
   if (timeHour == 0) {
@@ -17,6 +18,15 @@ export function calculateTime(
     // just so it can switch back
     finalHours = 12;
   }
+
+  // meridiem basic logic
+  let finalMeridiem: string;
+  if (timeDifferenceSecs < 12 * 3600) {
+    finalMeridiem = meridiem === "AM" ? "PM" : "AM";
+  } else {
+    finalMeridiem = meridiem;
+  }
+
   const finalMinutes = Math.floor((timeDifferenceSecs % 3600) / 60);
   const finalSecs = Math.floor(timeDifferenceSecs % 60);
 
@@ -24,5 +34,5 @@ export function calculateTime(
   const formattedMinutes = finalMinutes.toString().padStart(2, "0");
   const formattedSecs = finalSecs.toString().padStart(2, "0");
 
-  return `${formattedHours}:${formattedMinutes}:${formattedSecs}`;
+  return `${formattedHours}:${formattedMinutes}:${formattedSecs} ${finalMeridiem}`;
 }

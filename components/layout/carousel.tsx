@@ -15,7 +15,7 @@ type spanProps = {
   TimeHook: React.Dispatch<React.SetStateAction<number>>;
 };
 
-export function TimeSpan(props: spanProps) {
+export function TimeCarousel(props: spanProps) {
   const [api, setApi] = React.useState<CarouselApi>();
 
   React.useEffect(() => {

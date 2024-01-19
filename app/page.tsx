@@ -34,9 +34,10 @@ export default function Home() {
   const [hour, setHour] = React.useState(0);
   const [minute, setMinute] = React.useState(0);
   const [second, setSecond] = React.useState(0);
+  const [meridiem, setMeridiem] = React.useState("AM");
 
   return (
-    <main className="min-h-screen bg-gray-100 dark:bg-background flex flex-col">
+    <main className="min-h-screen bg-background dark:bg-background flex flex-col">
       <div className="flex flex-col p-16 items-center justify-between space-y-8 flex-1">
         <div id="headerContainer" className="space-y-8">
           <h1 className="pr-12 lg:pr-0 xl:pr-0 2xl:pr-0 scroll-m-20 text-5xl font-extrabold tracking-tight lg:text-6xl xl:text-6x1 2xl:text6x1 dark:text-white">
@@ -63,7 +64,9 @@ export default function Home() {
             <div className="flex space-x-8 flex-wrap self-stretch justify-center items-center">
               <div className="bg-red-500 text-white text-6xl max-w font-bold py-4 px-4 rounded-md flex flex-col mb-12 lg:mb-0 xl:mb-0 2xl:mb-0">
                 <p className="text-left font-semibold text-base">Play at...</p>
-                <p>{calculateTime(currentLength, hour, minute, second)}</p>
+                <p>
+                  {calculateTime(currentLength, hour, minute, second, meridiem)}
+                </p>
                 <p className="text-right font-semibold text-base">
                   to sync at around:
                 </p>
@@ -74,6 +77,8 @@ export default function Home() {
                 HourHook={setHour}
                 MinHook={setMinute}
                 SecsHook={setSecond}
+                meridiem={meridiem}
+                setMeridiem={setMeridiem}
               />
             </div>
           </>

@@ -1,12 +1,17 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+// import Link from "next/link";
 
 import { InputForm } from "@/components/layout/form";
 import { YouTubeVideoEmbed } from "@/components/layout/video";
 import { TimeSlot } from "@/components/layout/time";
 
 import { calculateTime } from "@/utils/calculateTime";
+
+import { Github, Coffee } from "lucide-react";
+
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   /* Hooks */
@@ -21,8 +26,8 @@ export default function Home() {
   const [second, setSecond] = React.useState(0);
 
   return (
-    <main className="min-h-screen bg-gray-100 p-16">
-      <div className="flex flex-col items-center justify-between space-y-8">
+    <main className="min-h-screen bg-gray-100 flex flex-col">
+      <div className="flex flex-col p-16 items-center justify-between space-y-8 flex-1">
         <div id="headerContainer" className="space-y-8">
           <h1 className="pr-12 lg:pr-0 xl:pr-0 2xl:pr-0 scroll-m-20 text-5xl font-extrabold tracking-tight lg:text-6xl xl:text-6x1 2xl:text6x1 dark:text-white">
             When to Play Video?
@@ -64,6 +69,42 @@ export default function Home() {
           </>
         )}
       </div>
+
+      <Separator className="bg-primary" />
+      <footer className="bg-grey-200 relative mt-auto py-6 md:px-8 md:py-0">
+        <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
+          <div className="flex flex-wrap justify-center">
+            <ul className="flex items-center space-x-4">
+              <p className="leading-7 [&:not(:first-child)]:mt-6">
+                Made with 💙 in 🇨🇴 by{" "}
+                <a
+                  href="https://twitter.com/shmugo_"
+                  className="font-medium text-primary underline underline-offset-4"
+                >
+                  @shmugo_
+                </a>
+              </p>
+              {/* add noto font emoji later because this font sucks */}
+            </ul>
+          </div>
+
+          <div className="flex items-center space-x-4">
+            <a
+              href="https://ko-fi.com/shmugo"
+              className="flex space-x-2 relative"
+            >
+              <p className="flex font-medium text-primary underline underline-offset-4">
+                Buy me a Coffee
+              </p>
+              <Coffee />
+            </a>
+            <Separator className="h-8" orientation="vertical" />
+            <a href="https://github.com/shmugoh/whentoplayvideo">
+              <Github />
+            </a>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }

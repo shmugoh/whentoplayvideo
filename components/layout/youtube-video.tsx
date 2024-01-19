@@ -12,10 +12,12 @@ export function YouTubeVideoEmbed(props: EmbedProps) {
   const playerRef = useRef("");
 
   useEffect(() => {
-    // Create a new player instance when the component mounts
+    // Create new player instance once component is mounted
     const player = new YTPlayer(playerRef.current, {
-      controls: true, // Add any additional configurations you need
+      controls: true,
       autoplay: true, // doesn't work but i'm keeping it here cuz y not lol
+      width: "100%",
+      // height: "100%",
     });
 
     // Load Video

@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 
 import { InputForm } from "@/components/layout/form";
-import { YouTubeVideoEmbed } from "@/components/layout/video";
+import { YouTubeVideoEmbed } from "@/components/layout/youtube-video";
 import { TimeSlot } from "@/components/layout/time";
 
 import { calculateTime } from "@/utils/calculateTime";
@@ -37,8 +37,9 @@ export default function Home() {
   const [meridiem, setMeridiem] = React.useState("AM");
 
   return (
-    <main className="min-h-screen bg-background dark:bg-background flex flex-col">
-      <div className="flex flex-col p-16 items-center justify-between space-y-8 flex-1">
+    <main className="min-h-screen bg-background dark:bg-background flex flex-col mx-auto">
+      <div className="flex flex-col p-16 items-center justify-between space-y-8 flex-1 lg:w-fit lg:mx-auto">
+        {/* regarding w-fit&mx-auto: stupid hack but it can do for now */}
         <div id="headerContainer" className="space-y-8">
           <h1 className="pr-12 lg:pr-0 xl:pr-0 2xl:pr-0 scroll-m-20 text-5xl font-extrabold tracking-tight lg:text-6xl xl:text-6x1 2xl:text6x1 dark:text-white">
             When to Play Video?
@@ -51,17 +52,21 @@ export default function Home() {
             setVideoId={setVideoId}
           />
         </div>
-
         {videoId && (
           <>
-            <YouTubeVideoEmbed
-              className=""
-              videoId={videoId}
-              setDurationHook={setDuration}
-              setLengthHook={setCurrentLength}
-            />
+            <div id="videoContainer" className="w-full">
+              <YouTubeVideoEmbed
+                className=""
+                videoId={videoId}
+                setDurationHook={setDuration}
+                setLengthHook={setCurrentLength}
+              />
+            </div>
 
-            <div className="flex space-x-8 flex-wrap self-stretch justify-center items-center">
+            <div
+              id="settingsContainer"
+              className="flex space-x-8 flex-wrap justify-center items-center w-full"
+            >
               <div className="bg-red-500 text-white text-6xl max-w font-bold py-4 px-4 rounded-md flex flex-col mb-12 lg:mb-0 xl:mb-0 2xl:mb-0">
                 <p className="text-left font-semibold text-base">Play at...</p>
                 <p>

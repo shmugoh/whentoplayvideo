@@ -1,6 +1,6 @@
 import React from "react";
-import { TimeSpan } from "@/components/layout/timespan";
-import { Toggle } from "../ui/toggle";
+import { TimeCarousel } from "@/components/layout/carousel";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 type propsTimeSlot = {
   currentLength: number;
@@ -8,17 +8,30 @@ type propsTimeSlot = {
   HourHook: React.Dispatch<React.SetStateAction<number>>;
   MinHook: React.Dispatch<React.SetStateAction<number>>;
   SecsHook: React.Dispatch<React.SetStateAction<number>>;
+
+  meridiem: any;
+  setMeridiem: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export function TimeSlot(props: propsTimeSlot) {
   return (
-    <div className={`flex flex-row`}>
-      <TimeSpan length={12} TimeHook={props.HourHook} />
-      <TimeSpan length={60} TimeHook={props.MinHook} />
-      <TimeSpan length={60} TimeHook={props.SecsHook} />
+    <div className="flex flex-row">
+      <TimeCarousel length={12} TimeHook={props.HourHook} />
+      <TimeCarousel length={60} TimeHook={props.MinHook} />
+      <TimeCarousel length={60} TimeHook={props.SecsHook} />
       <div className="space-y-4">
-        <Toggle className="">AM</Toggle>
-        <Toggle className="">PM</Toggle>
+        <ToggleGroup
+          className="flex flex-col"
+          variant="outline"
+          type="single"
+          value={props.meridiem}
+          onValueChange={(meridiem) => {
+            if (meridiem) props.setMeridiem(meridiem);
+          }}
+        >
+          <ToggleGroupItem value="AM">AM</ToggleGroupItem>
+          <ToggleGroupItem value="PM">PM</ToggleGroupItem>
+        </ToggleGroup>
       </div>
 
       {/* <div className="flex flex-row">

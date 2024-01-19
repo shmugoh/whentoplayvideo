@@ -35,6 +35,7 @@ export default function Home() {
   const [minute, setMinute] = React.useState(0);
   const [second, setSecond] = React.useState(0);
   const [meridiem, setMeridiem] = React.useState("AM");
+  const time = calculateTime(currentLength, hour, minute, second, meridiem);
 
   return (
     <main className="min-h-screen bg-background dark:bg-background flex flex-col mx-auto">
@@ -65,14 +66,19 @@ export default function Home() {
 
             <div
               id="settingsContainer"
-              className="flex space-x-8 flex-wrap justify-center items-center w-full"
+              className="flex space-x-8 flex-wrap lg:flex-nowrap justify-center items-center w-full"
             >
-              <div className="bg-red-500 text-white text-6xl max-w font-bold py-4 px-4 rounded-md flex flex-col mb-12 lg:mb-0 xl:mb-0 2xl:mb-0">
-                <p className="text-left font-semibold text-base">Play at...</p>
-                <p>
-                  {calculateTime(currentLength, hour, minute, second, meridiem)}
-                </p>
-                <p className="text-right font-semibold text-base">
+              <div className="text-base w-full lg:w-3/5 bg-red-500 text-white max-w py-4 px-4 rounded-md flex flex-col mb-12 lg:mb-0 xl:mb-0 2xl:mb-0">
+                <p className="font-bold text-left">Play at...</p>
+
+                <div className="font-mono text-4xl font-black flex justify-between space-x-4 lg:text-6xl">
+                  <p>
+                    {time.hour}:{time.minute}:{time.second}
+                  </p>
+                  <p className="ml-auto">{time.meridiem}</p>
+                </div>
+
+                <p className="font-bold text-left lg:text-right">
                   to sync at around:
                 </p>
               </div>

@@ -16,9 +16,6 @@ import { Separator } from "@/components/ui/separator";
 
 import { Button } from "@/components/ui/button";
 
-import { Noto_Color_Emoji } from "next/font/google";
-const noto = Noto_Color_Emoji({ weight: "400", subsets: ["emoji"] });
-
 export default function Home() {
   /* Hooks */
   // UI Hooks
@@ -89,8 +86,7 @@ export default function Home() {
           <div className="flex flex-wrap justify-center">
             <ul className="flex items-center space-x-4">
               <p className="leading-7 [&:not(:first-child)]:mt-6">
-                Made with <span className={noto.className}>💙</span> in{" "}
-                <span className={noto.className}>🇨🇴</span> by{" "}
+                Made with ❤️ in Colombia by{" "}
                 <a
                   href="https://twitter.com/shmugo_"
                   className="font-medium text-primary underline underline-offset-4"

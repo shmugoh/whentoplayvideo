@@ -46,6 +46,6 @@ export function calculateTime(
     hour: formattedHours,
     minute: formattedMinutes,
     second: formattedSecs,
-    meridiem: meridiem,
+    meridiem: finalMeridiem,
   };
 }

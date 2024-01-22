@@ -10,13 +10,18 @@ import { Foot } from "@/components/footer";
 
 import { calculateTime } from "@/utils/calculateTime";
 
-export default function Home() {
+type HomeProps = {
+  videoId: string | null;
+  timestamp: string | number | null;
+};
+
+export default function Home(props: HomeProps) {
   /* Hooks */
   // YouTube Hooks
   const [videoId, setVideoId] = React.useState({
     domain: "",
-    videoId: "",
-    timestamp: 0,
+    videoId: props.videoId ? props.videoId : "",
+    timestamp: props.timestamp ? props.timestamp : 0,
   });
   // sorry
   const [duration, setDuration] = React.useState(0);

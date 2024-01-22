@@ -4,6 +4,14 @@ export type ProcessURLObject = {
   timestamp: number | null;
 };
 
+export function processID(videoId: any): boolean {
+  const re = /([a-z0-9_-]{11})/gim;
+  if (videoId.match(re)) {
+    return true;
+  }
+  return false;
+}
+
 export function processUrl(url: string): ProcessURLObject {
   const re =
     /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})(?:.*?[?&]t=([0-9ms]+))?/;

@@ -39,7 +39,7 @@ export default function Home(props: HomeProps) {
       <div className="flex flex-col p-16 items-center justify-between space-y-8 flex-1 lg:w-fit lg:mx-auto">
         {/* regarding w-fit&mx-auto: stupid hack but it can do for now */}
         <div id="headerContainer" className="space-y-8">
-          <h1 className="pr-12 lg:pr-0 xl:pr-0 2xl:pr-0 scroll-m-20 text-5xl font-extrabold tracking-tight lg:text-6xl xl:text-6x1 2xl:text6x1 dark:text-white">
+          <h1 className="pr-12 lg:pr-0 scroll-m-20 text-5xl font-extrabold tracking-tight lg:text-6xl dark:text-white">
             When to Play Video?
           </h1>
 
@@ -64,19 +64,19 @@ export default function Home(props: HomeProps) {
 
             <div
               id="settingsContainer"
-              className="flex space-x-8 flex-wrap lg:flex-nowrap justify-center items-center w-full"
+              className="flex gap-0 md:gap-4 flex-wrap lg:flex-nowrap justify-center items-center w-full"
             >
-              <div className="text-base w-full lg:w-3/5 bg-red-500 text-white max-w py-4 px-4 rounded-md flex flex-col mb-12 lg:mb-0 xl:mb-0 2xl:mb-0">
+              <div className="text-base w-full md:w-1/2 lg:w-3/5 bg-red-500 text-white max-w py-4 px-4 rounded-md flex flex-col mb-12 md:mb-0">
                 <p className="font-bold text-left">Play at...</p>
 
-                <div className="font-mono text-4xl font-black flex justify-between space-x-4 lg:text-6xl">
+                <div className="font-mono text-4xl font-black flex justify-between space-x-4 md:text-5xl lg:text-6xl">
                   <p>
                     {time.hour}:{time.minute}:{time.second}
                   </p>
                   <p className="ml-auto">{time.meridiem}</p>
                 </div>
 
-                <p className="font-bold text-left lg:text-right">
+                <p className="font-bold text-left md:text-right">
                   to sync at around:
                 </p>
               </div>

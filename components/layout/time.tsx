@@ -15,13 +15,15 @@ type propsTimeSlot = {
 
 export function TimeSlot(props: propsTimeSlot) {
   return (
-    <div className="flex flex-row">
-      <TimeCarousel length={12} TimeHook={props.HourHook} />
-      <TimeCarousel length={60} TimeHook={props.MinHook} />
-      <TimeCarousel length={60} TimeHook={props.SecsHook} />
+    <div className="flex flex-col md:flex-row md:gap-2">
+      <div className="flex flex-row">
+        <TimeCarousel length={12} TimeHook={props.HourHook} />
+        <TimeCarousel length={60} TimeHook={props.MinHook} />
+        <TimeCarousel length={60} TimeHook={props.SecsHook} />
+      </div>
       <div className="space-y-4">
         <ToggleGroup
-          className="flex flex-col"
+          className="flex flex-row mt-10 md:flex-col md:mt-0"
           variant="outline"
           type="single"
           value={props.meridiem}
@@ -29,8 +31,12 @@ export function TimeSlot(props: propsTimeSlot) {
             if (meridiem) props.setMeridiem(meridiem);
           }}
         >
-          <ToggleGroupItem value="AM">AM</ToggleGroupItem>
-          <ToggleGroupItem value="PM">PM</ToggleGroupItem>
+          <ToggleGroupItem className="w-full" value="AM">
+            AM
+          </ToggleGroupItem>
+          <ToggleGroupItem className="w-full" value="PM">
+            PM
+          </ToggleGroupItem>
         </ToggleGroup>
       </div>
 

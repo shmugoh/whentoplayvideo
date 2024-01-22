@@ -60,8 +60,8 @@ export function TimeCarousel(props: spanProps) {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="h-20 rounded-md" />
-      <CarouselNext className="h-20 rounded-md" />
+      <CarouselPrevious className="mt-1 h-20 rounded-md" />
+      <CarouselNext className="mb-1.5 h-20 rounded-md" />
     </Carousel>
   );
 }

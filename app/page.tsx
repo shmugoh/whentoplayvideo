@@ -64,7 +64,7 @@ export default function Home(props: HomeProps) {
 
             <div
               id="settingsContainer"
-              className="flex gap-0 md:gap-4 flex-wrap lg:flex-nowrap justify-center items-center w-full"
+              className="flex gap-4 flex-wrap lg:flex-nowrap justify-center items-center w-full"
             >
               <div className="text-base w-full md:w-1/2 lg:w-3/5 bg-red-500 text-white max-w py-4 px-4 rounded-md flex flex-col mb-12 md:mb-0">
                 <p className="font-bold text-left">Play at...</p>

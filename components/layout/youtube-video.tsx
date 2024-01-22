@@ -4,6 +4,7 @@ import YTPlayer from "yt-player";
 type EmbedProps = {
   className: string;
   videoId: string;
+  timestamp: number;
   setDurationHook: React.Dispatch<React.SetStateAction<number>>;
   setLengthHook: React.Dispatch<React.SetStateAction<number>>;
 };
@@ -17,8 +18,11 @@ export function YouTubeVideoEmbed(props: EmbedProps) {
       controls: true,
       autoplay: true, // doesn't work but i'm keeping it here cuz y not lol
       width: "100%",
+      start: props.timestamp ? props.timestamp : 0,
       // height: "100%",
     });
+
+    console.log(props.videoId, props.timestamp);
 
     // Load Video
     player.load(props.videoId);
@@ -31,6 +35,7 @@ export function YouTubeVideoEmbed(props: EmbedProps) {
     // Autoplays video, as opts.autoplay doesn't work for some reason
     player.on("cued", () => {
       player.play();
+      player.seek(props.timestamp ? props.timestamp : 0);
     });
 
     player.on("timeupdate", () => {

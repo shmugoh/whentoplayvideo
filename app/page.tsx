@@ -13,7 +13,12 @@ import { calculateTime } from "@/utils/calculateTime";
 export default function Home() {
   /* Hooks */
   // YouTube Hooks
-  const [videoId, setVideoId] = React.useState("");
+  const [videoId, setVideoId] = React.useState({
+    domain: "",
+    videoId: "",
+    timestamp: 0,
+  });
+  // sorry
   const [duration, setDuration] = React.useState(0);
   const [currentLength, setCurrentLength] = React.useState(0);
 
@@ -40,12 +45,13 @@ export default function Home() {
             setVideoId={setVideoId}
           />
         </div>
-        {videoId && (
+        {videoId.videoId != "" && (
           <>
             <div id="videoContainer" className="w-full">
               <YouTubeVideoEmbed
                 className=""
-                videoId={videoId}
+                videoId={videoId.videoId}
+                timestamp={videoId.timestamp}
                 setDurationHook={setDuration}
                 setLengthHook={setCurrentLength}
               />

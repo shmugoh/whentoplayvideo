@@ -15,7 +15,7 @@ type propsTimeSlot = {
 
 export function TimeSlot(props: propsTimeSlot) {
   return (
-    <div className="flex flex-col md:flex-row md:gap-2">
+    <div className="flex flex-col gap-2 md:flex-row md:gap-2">
       <div className="flex flex-row">
         <TimeCarousel length={12} TimeHook={props.HourHook} />
         <TimeCarousel length={60} TimeHook={props.MinHook} />

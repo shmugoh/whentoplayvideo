@@ -44,12 +44,12 @@ export function TimeCarousel(props: spanProps) {
       className="w-full max-w-xs"
       setApi={setApi}
     >
-      <CarouselContent className="-mt-1 h-[108px]">
+      <CarouselContent className="h-[108px] md:-mt-1 md:h-[108px]">
         {Array.from({ length: props.length }).map((_, index) => (
           <CarouselItem key={index} className="">
             <div className="p-1">
               <Card>
-                <CardContent className="flex items-center justify-center p-4">
+                <CardContent className="flex items-center justify-center p-6 md:p-4">
                   <span className="text-3xl font-semibold">
                     {(index + 1 < 10 ? "0" : "") +
                       (props.length === 12 ? index + 1 : index)}
@@ -60,8 +60,8 @@ export function TimeCarousel(props: spanProps) {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="mt-1 h-20 rounded-md" />
-      <CarouselNext className="mb-1.5 h-20 rounded-md" />
+      <CarouselPrevious className="h-full -mt-3 md:mt-1 md:h-20 rounded-md" />
+      <CarouselNext className="h-full -mb-4 md:mb-1.5 md:h-20 rounded-md" />
     </Carousel>
   );
 }

@@ -40,18 +40,24 @@ export function Foot() {
               <p className="flex font-medium text-primary underline underline-offset-4">
                 Buy me a Coffee
               </p>
-              <Coffee />
+              <Coffee className="hover:-rotate-6 hover:scale-125" />
             </a>
             <Separator className="h-8" orientation="vertical" />
             <a href="https://github.com/shmugoh/whentoplayvideo">
-              <Github />
+              <Github className="hover:rotate-6 hover:scale-125" />
             </a>
             <Separator className="h-8" orientation="vertical" />
 
             {theme === "light" ? (
-              <Moon onClick={toggleTheme} />
+              <Moon
+                onClick={toggleTheme}
+                className="hover:-rotate-6 hover:scale-125 hover:cursor-pointer"
+              />
             ) : (
-              <Sun onClick={toggleTheme} />
+              <Sun
+                onClick={toggleTheme}
+                className="hover:rotate-12 hover:scale-125 hover:cursor-pointer"
+              />
             )}
           </div>
         </div>

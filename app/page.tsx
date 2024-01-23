@@ -64,7 +64,7 @@ export default function Home(props: any) {
           >
             <div className="text-base w-full md:w-1/2 lg:w-3/5 bg-card text-white max-w py-4 px-4 rounded-md flex flex-col mb-4 lg:mb-0">
               <p className="font-bold text-left text-card-foreground">
-                Play {time.day ? "before" : "at..."}
+                Play {time.day ? "before" : "at exactly"}
               </p>
 
               {time.day > 0 ? (
@@ -75,13 +75,12 @@ export default function Home(props: any) {
                     </p>
                   </div>
                   <p className="font-bold text-left text-card-foreground">
-                    exactly around at...
+                    at exactly
                   </p>
                 </div>
               ) : (
                 ""
               )}
-
               <div className="text-4xl text-card-foreground font-mono font-black flex justify-between space-x-4 md:text-5xl lg:text-6xl">
                 <p>
                   {time.hour}:{time.minute}:{time.second}
@@ -89,7 +88,7 @@ export default function Home(props: any) {
                 <p className="ml-auto">{time.meridiem}</p>
               </div>
               <p className="text-card-foreground font-bold text-left md:text-right">
-                to sync at around:
+                to sync at...
               </p>
             </div>
 

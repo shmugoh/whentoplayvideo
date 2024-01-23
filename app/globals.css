@@ -34,9 +34,9 @@
     /* Footer */
     --muted: #eeeeee;
     --muted-foreground: #222831;
+    --popover: #d0d0d0;
 
     /* Unused */
-    --popover: #ffffff;
     --popover-foreground: #222831;
     --radius: 0.5rem;
   }
@@ -54,6 +54,7 @@
     /* Borders */
     --border: #2f3335;
     --input: #2f3335;
+    --popover: #464a4e;
 
     /* Time Card */
     --card: #ef4444;
@@ -75,7 +76,6 @@
     --muted-foreground: #f7f7f7;
 
     /* Unused */
-    --popover: #3d4852;
     --popover-foreground: #f7f7f7;
     --radius: 0.5rem;
   }

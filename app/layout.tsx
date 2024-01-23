@@ -3,9 +3,11 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { ThemeProvider } from "@/components/ui/theme-provider";
+import { Foot } from "@/components/footer";
 
 import { Inter } from "next/font/google";
 import "./globals.css";
+
 const inter = Inter({ subsets: ["latin"] });
 /* --- */
 
@@ -53,7 +55,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <main className="min-h-screen bg-background dark:bg-background flex flex-col mx-auto">
+            {children}
+            <Foot />
+          </main>
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />

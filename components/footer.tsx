@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { useTheme } from "next-themes";
 import { Separator } from "@/components/ui/separator";

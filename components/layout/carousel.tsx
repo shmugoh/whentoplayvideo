@@ -48,9 +48,9 @@ export function TimeCarousel(props: spanProps) {
         {Array.from({ length: props.length }).map((_, index) => (
           <CarouselItem key={index} className="">
             <div className="p-1">
-              <Card>
+              <Card className="bg-destructive">
                 <CardContent className="flex items-center justify-center p-6 md:p-4">
-                  <span className="text-3xl font-semibold">
+                  <span className="text-destructive-foreground text-3xl font-semibold">
                     {(index + 1 < 10 ? "0" : "") +
                       (props.length === 12 ? index + 1 : index)}
                   </span>
@@ -60,8 +60,8 @@ export function TimeCarousel(props: spanProps) {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="h-full -mt-3 md:mt-1 md:h-20 rounded-md" />
-      <CarouselNext className="h-full -mb-4 md:mb-1.5 md:h-20 rounded-md" />
+      <CarouselPrevious className="bg-destructive h-full -mt-3 md:mt-1 md:h-20 rounded-md" />
+      <CarouselNext className="bg-destructive h-full -mb-4 md:mb-1.5 md:h-20 rounded-md" />
     </Carousel>
   );
 }

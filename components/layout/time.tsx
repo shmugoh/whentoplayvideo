@@ -31,34 +31,20 @@ export function TimeSlot(props: propsTimeSlot) {
             if (meridiem) props.setMeridiem(meridiem);
           }}
         >
-          <ToggleGroupItem className="w-full" value="AM">
+          <ToggleGroupItem
+            className="bg-secondary text-secondary-foreground w-full"
+            value="AM"
+          >
             AM
           </ToggleGroupItem>
-          <ToggleGroupItem className="w-full" value="PM">
+          <ToggleGroupItem
+            className="bg-secondary text-secondary-foreground w-full"
+            value="PM"
+          >
             PM
           </ToggleGroupItem>
         </ToggleGroup>
       </div>
-
-      {/* <div className="flex flex-row">
-        <div className="flex flex-col" id="hours">
-          <Button>↑</Button>
-          <p>12</p>
-          <Button>↓</Button>
-        </div>
-
-        <div className="flex flex-col" id="minutes">
-          <Button className="w-max">↑</Button>
-          <p>12</p>
-          <Button>↓</Button>
-        </div>
-
-        <div className="flex flex-col" id="seconds">
-          <Button className="w-max">↑</Button>
-          <p>12</p>
-          <Button>↓</Button>
-        </div>
-      </div> */}
     </div>
   );
 }

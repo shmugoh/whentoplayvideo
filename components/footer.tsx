@@ -15,16 +15,16 @@ export function Foot() {
 
   return (
     <div>
-      <Separator className="bg-primary" />
-      <footer className="bg-grey-200 relative mt-auto py-6 md:px-8 md:py-0">
+      <Separator className="bg-border" />
+      <footer className="bg-muted relative mt-auto py-6 md:px-8 md:py-0">
         <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
           <div className="flex flex-wrap justify-center">
             <ul className="flex items-center space-x-4">
-              <p className="leading-7 [&:not(:first-child)]:mt-6">
+              <p className="text-muted-foreground leading-7 [&:not(:first-child)]:mt-6">
                 Made with ❤️ in Colombia by{" "}
                 <a
                   href="https://twitter.com/shmugo_"
-                  className="font-medium text-primary underline underline-offset-4"
+                  className="font-medium text-muted-foreground underline underline-offset-4"
                 >
                   shmugo
                 </a>
@@ -37,7 +37,7 @@ export function Foot() {
               href="https://ko-fi.com/shmugo"
               className="flex space-x-2 relative"
             >
-              <p className="flex font-medium text-primary underline underline-offset-4">
+              <p className="flex font-medium text-muted-foreground underline underline-offset-4">
                 Buy me a Coffee
               </p>
               <Coffee className="hover:-rotate-6 hover:scale-125" />

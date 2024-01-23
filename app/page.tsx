@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { NextPage, NextPageContext } from "next";
 
 import { InputForm } from "@/components/layout/form";
 import { YouTubeVideoEmbed } from "@/components/layout/youtube-video";
@@ -8,19 +9,17 @@ import { TimeSlot } from "@/components/layout/time";
 
 import { calculateTime } from "@/utils/calculateTime";
 
-type HomeProps = {
-  videoId: string | null;
-  timestamp: string | number | null;
-};
-
-export default function Home(props: HomeProps) {
+// i can't parse in a normal type/interface, nor i cant put one directly
+// onto nextpage, so i guess any will do the job
+const Home: NextPage<any> = ({ initialVideoId, timestamp }) => {
   /* Hooks */
   // YouTube Hooks
   const [videoId, setVideoId] = useState({
     domain: "",
-    videoId: props.videoId ? props.videoId : "",
-    timestamp: props.timestamp ? props.timestamp : 0,
+    videoId: initialVideoId ? initialVideoId : "",
+    timestamp: timestamp ? timestamp : 0,
   });
+
   // sorry
   const [duration, setDuration] = useState(0);
   const [currentLength, setCurrentLength] = useState(0);
@@ -108,4 +107,6 @@ export default function Home(props: HomeProps) {
       )}
     </div>
   );
-}
+};
+
+export default Home;

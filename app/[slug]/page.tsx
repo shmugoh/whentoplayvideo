@@ -11,7 +11,7 @@ export default function SlugPage({ params }: { params: { slug: string } }) {
   const timestamp = parameters.get("t");
 
   if (processID(videoId)) {
-    return <Home videoId={videoId} timestamp={timestamp} />;
+    return <Home initialVideoId={videoId} timestamp={timestamp} />;
   } else {
     return <NotFoundPage />;
   }

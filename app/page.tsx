@@ -9,8 +9,8 @@ import { TimeSlot } from "@/components/layout/time";
 import { calculateTime } from "@/utils/calculateTime";
 
 type HomeProps = {
-  videoId: string | null;
-  timestamp: string | number | null;
+  videoId: any;
+  timestamp: any;
 };
 
 export default function Home(props: HomeProps) {
@@ -76,7 +76,7 @@ export default function Home(props: HomeProps) {
                     </p>
                   </div>
                   <p className="font-bold text-left text-card-foreground">
-                    exactly around at...
+                    exactly at around...
                   </p>
                 </div>
               ) : (

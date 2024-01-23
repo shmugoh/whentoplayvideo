@@ -10,45 +10,47 @@ type EmbedProps = {
 };
 
 export function YouTubeVideoEmbed(props: EmbedProps) {
-  const playerRef = useRef("");
+  const playerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Create new player instance once component is mounted
-    const player = new YTPlayer(playerRef.current, {
-      controls: true,
-      autoplay: true, // doesn't work but i'm keeping it here cuz y not lol
-      width: "100%",
-      start: props.timestamp ? props.timestamp : 0,
-      // height: "100%",
-    });
+    if (playerRef.current) {
+      // Create new player instance once component is mounted
+      const player = new YTPlayer(playerRef.current, {
+        controls: true,
+        autoplay: true,
+        width: "100%" as any,
+        start: props.timestamp ? props.timestamp : 0,
+      });
 
-    console.log(props.videoId, props.timestamp);
+      console.log(props.videoId, props.timestamp);
 
-    // Load Video
-    player.load(props.videoId);
-    player.on("unstarted", () => {
-      // Obtain Duration
-      var durationVal = player.getDuration();
-      props.setDurationHook(durationVal);
-    });
+      // Load Video
+      player.load(props.videoId);
+      player.on("unstarted", () => {
+        // Obtain Duration
+        var durationVal = player.getDuration();
+        props.setDurationHook(durationVal);
+      });
 
-    // Autoplays video, as opts.autoplay doesn't work for some reason
-    player.on("cued", () => {
-      player.play();
-      player.seek(props.timestamp ? props.timestamp : 0);
-    });
+      // Autoplays video, as opts.autoplay doesn't work for some reason
+      player.on("cued", () => {
+        player.play();
+        player.seek(props.timestamp ? props.timestamp : 0);
+      });
 
-    player.on("timeupdate", () => {
-      // Update Current Time Update
-      var currentTime = Math.floor(player.getCurrentTime());
-      props.setLengthHook(currentTime);
-    });
+      player.on("timeupdate", () => {
+        // Update Current Time Update
+        var currentTime = Math.floor(player.getCurrentTime());
+        props.setLengthHook(currentTime);
+      });
 
-    // Destroy when new videoId is parsed
-    return () => {
-      player.destroy();
-    };
+      // Destroy when new videoId is parsed
+      return () => {
+        player.destroy();
+      };
+    }
   }, [props.videoId]);
+  // if i use props instead of props.videoId, video component would load the double and i wanna avoid that
 
   return <div className={props.className} ref={playerRef}></div>;
 }

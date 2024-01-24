@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# WhenToPlayVideo
 
-## Getting Started
+<div align="center">
+  <img src="https://github.com/shmugoh/whentoplayvideo/raw/master/docs/logo.png" width="15%">
 
-First, run the development server:
+  <div>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/shmugoh/whentoplayvideo)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/shmugo)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+  </div>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+---
 
-## Learn More
+WhenToPlayVideo is a NextJS web application that simplifies the process of syncing YouTube videos to specific timestamps set by the user.
 
-To learn more about Next.js, take a look at the following resources:
+<img src="https://github.com/shmugoh/whentoplayvideo/raw/master/docs/1_general_preview.png" width="80%"></img>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+</div>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Features
 
-## Deploy on Vercel
+<div align="center">
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<img src="https://github.com/shmugoh/whentoplayvideo/raw/master/docs/3_day_preview.png" width="45%"></img>
+<img src="https://github.com/shmugoh/whentoplayvideo/raw/master/docs/4_dark_timestamp_preview.png" width="45%"></img>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+</div>
+
+- Quickly sync YouTube videos to specific timestamps for special occasions or celebrations, even those that are longer than 24 hours.
+- Use standard or shortened YouTube URLs, with the option to specify the timestamp parameter within the link; WhenToPlayVideo will initiate playback automatically from the specified time.
+- User-friendly design powered by Tailwind CSS for a seamless experience. It is also compatible with mobile devices.
+
+<div align="center">
+
+<img src="https://github.com/shmugoh/whentoplayvideo/raw/master/docs/2_general_mobile_preview.png" width="35%"></img> <img src="https://github.com/shmugoh/whentoplayvideo/raw/master/docs/5_mobile_preview.png" width="35%"></img>
+
+</div>
+
+## Contributing
+
+Contributions are welcome! If you have any ideas for improvement, bug reports, or feature requests, feel free to [create an issue](https://github.com/shmugoh/WhenToPlayVideo/issues) or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).

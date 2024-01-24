@@ -1,19 +1,22 @@
-# WhenToPlayVideo
-
 <div align="center">
-  <img src="https://github.com/shmugoh/whentoplayvideo/raw/master/docs/logo.png" width="15%">
 
+  <img src="https://github.com/shmugoh/whentoplayvideo/raw/master/docs/logo.png" width="15%">
+  
+  <h1>WhenToPlayVideo</h1>
+  
+  Currently seeking funding to secure a domain!
+  
   <div>
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/shmugoh/whentoplayvideo)
-
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/shmugo)
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/shmugoh/whentoplayvideo)
 
   </div>
 
 ---
 
-WhenToPlayVideo is a NextJS web application that simplifies the process of syncing YouTube videos to specific timestamps set by the user.
+WhenToPlayVideo is a web application written in React/Next.js that simplifies the process of syncing YouTube videos to specific timestamps set by the user.
 
 <img src="https://github.com/shmugoh/whentoplayvideo/raw/master/docs/1_general_preview.png" width="60%"></img>
 

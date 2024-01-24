@@ -21,6 +21,7 @@ export function calculateTime(
     timeHour = 0;
   }
 
+  // calculate user input in seconds & difference with video's time
   let totalSecondsInput = timeHour * 3600 + timeMinute * 60 + timeSecond;
   let timeDifferenceSecs = totalSecondsInput - videoTime;
 
@@ -31,6 +32,7 @@ export function calculateTime(
     timeDifferenceSecs += finalDays * 24 * 3600;
   }
 
+  // / calculate from seconds: hours, minutes, and seconds from the remaining timeDifference
   finalDays = finalDays > 0 ? finalDays - 1 : 0; // subtracting one to maintain accuracy, as the negative time difference logic sums up a day
   let finalHours = Math.floor(timeDifferenceSecs / 3600);
   const finalMinutes = Math.floor((timeDifferenceSecs % 3600) / 60);
@@ -51,6 +53,7 @@ export function calculateTime(
     }
   }
 
+  // return formatted
   const formattedDays = finalDays;
   const formattedHours = finalHours.toString().padStart(2, "0");
   const formattedMinutes = finalMinutes.toString().padStart(2, "0");

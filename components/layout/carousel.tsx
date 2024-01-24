@@ -29,7 +29,6 @@ export function TimeCarousel(props: spanProps) {
 
       // Adjust logic based on the length
       props.TimeHook(props.length === 12 ? currentNum : currentNum - 1);
-      console.log(props.length === 12 ? currentNum : currentNum - 1);
     });
   }, [api]);
 

@@ -22,8 +22,6 @@ export function YouTubeVideoEmbed(props: EmbedProps) {
       // height: "100%",
     });
 
-    console.log(props.videoId, props.timestamp);
-
     // Load Video
     player.load(props.videoId);
     player.on("unstarted", () => {

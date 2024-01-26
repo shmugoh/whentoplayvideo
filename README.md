@@ -14,11 +14,7 @@
 </image>
 <h1>WhenToPlayVideo</h1>
 
-<div align="center">
-
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/shmugoh/whentoplayvideo)
-
-</div>
 
 WhenToPlayVideo is a user-friendly web application, built using React/Next.js, designed to simplify the process of syncing YouTube videos to specific timestamps set by the user, making it perfect for special occasions or celebrations.
 
